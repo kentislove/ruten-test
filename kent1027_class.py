@@ -75,7 +75,7 @@ class RutenAPIClient:
         logging.debug(f"生成標頭：簽章={signature[:8]}..., 時間戳記={timestamp}")
         
         return {
-            'User-Agent': 'rutne-api',
+            'User-Agent': 'ruten-api',
             'Content-Type': content_type,
             'X-RT-Key': self.api_key,
             'X-RT-Timestamp': str(timestamp),
@@ -89,7 +89,7 @@ class RutenAPIClient:
         local_timestamp = str(timestamp)
         
         full_url = f"{self.base_url}{endpoint}"
-        headers = self._get_headers(url_path=full_url, request_body=request_body)
+        headers = self._get_headers(url_path=endpoint, request_body=request_body)
         logging.debug(f"Ruten API 請求：{method} {full_url}, 標頭={headers}, 參數={params}, 本地時間戳記={local_timestamp}")
         
         try:
